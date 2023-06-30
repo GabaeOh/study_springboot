@@ -83,4 +83,12 @@ public class HelloWorldController {
 
         return ResponseEntity.ok().body(arrayList); //json으로 상대한테 결과값을 보내줌 
     }
+
+    // /helloWorldResponseFake/C001
+    @GetMapping("/helloWorldResponseFake/{companyId}") 
+    public ResponseEntity<Object> helloWorldResponseFake(@PathVariable String companyId){ 
+        ArrayList arrayList = new ArrayList<>();
+        helloWorldService.fakeSelect(companyId); 
+        return ResponseEntity.ok().body(arrayList); //json으로 상대한테 결과값을 보내줌 
+    }
 }
